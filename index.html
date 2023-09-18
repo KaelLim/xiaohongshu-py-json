@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Feed</title>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Fancybox CSS and JS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+    <style>
+        .video-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .video-item img {
+            max-width: 200px;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div id="video-feed"></div>
+
+<script>
+    $(document).ready(function() {
+        // Fetch the data from GitHub
+        $.getJSON('https://raw.githubusercontent.com/KaelLim/xiaohongshu-py-json/main/video_details.json', function(data) {
+            data.forEach(video => {
+                const videoItem = `
+                <div class="video-item">
+                    <img src="${video.image_links[0]}" data-fancybox href="${video.video_url}" alt="Thumbnail">
+                    <div>
+                        <h3>${video.title}</h3>
+                        <p>${video.description}</p>
+                    </div>
+                </div>
+                `;
+                $('#video-feed').append(videoItem);
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

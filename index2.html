@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video Feed</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
     <style>
         /* Custom styles based on provided CSS reference */
         body {
@@ -31,13 +31,13 @@
     <div class="row justify-content-center" id="video-feed"></div>
     <!-- Read More -->
     <div class="col-12 text-center mt-4">
-        <a href="https://www.xiaohongshu.com/user/profile/6116981a000000000101ef05" class="btn btn-primary">閱讀更多</a>
+        <a href="#" class="btn btn-primary">閱讀更多</a>
     </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 <script>
     $.getJSON("https://raw.githubusercontent.com/KaelLim/xiaohongshu-py-json/main/video_details.json", function(data) {
         const videoFeed = $("#video-feed");
@@ -45,7 +45,7 @@
             let video = data[i];
             let column = `
                 <div class="col-md-4 col-sm-12 video-item">
-                    <a href="${video.video_url}" data-lightbox="videos"><img src="${video.image_links}" class="img-fluid" alt="Video Thumbnail"></a>
+                    <a data-fancybox href="${video.video_url}" data-caption="${video.title}"><img src="${video.image_links}" class="img-fluid" alt="Video Thumbnail"></a>
                     <h5>${video.title}</h5>
                     <p>${video.description}</p>
                 </div>

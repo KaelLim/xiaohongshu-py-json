@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2; /* 淡灰色背景 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+}
+
+.video-item {
+    width: 35%; /* 整體寬度為75% */
+    margin: 15px auto; /* 置中 */
+    background-color: #ffffff; /* 白色背景 */
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 陰影效果 */
+}
+
+.video-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.video-description {
+    margin-bottom: 20px;
+}
+
+.video-thumbnail {
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.video-thumbnail:hover {
+    transform: scale(1.05);
+}
+
+
+.video-item {
+    display: flex;
+    margin-bottom: 20px;
+    }
+    .video-item img {
+        max-width: 200px;
+        margin-right: 20px;
+        cursor: pointer;
+    }
